@@ -26,9 +26,9 @@ class HomeTabsVC: UITabBarController {
     }
 
     @objc func btnCardClick (_ sender: Any){
-//        let storyboard = UIStoryboard(name: "HomeTabs", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "VCCart") as! VCCart
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "CartVC") as! CartVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func btnSearchClick (_ sender: Any){
@@ -53,9 +53,8 @@ class HomeTabsVC: UITabBarController {
                 Cartbtn?.badgeString = cartCount
             }
             
-            Cartbtn?.addTarget(self, action:#selector(btnCardClick(_:)), for: UIControlEvents.touchUpInside)
+        Cartbtn?.addTarget(self, action:#selector(btnCardClick(_:)), for: UIControlEvents.touchUpInside)
         
-
         Notificationbtn = MIBadgeButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
         Notificationbtn?.badgeBackgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
         Notificationbtn!.setImage(#imageLiteral(resourceName: "Notification"), for: .normal)

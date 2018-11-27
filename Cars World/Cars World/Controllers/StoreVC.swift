@@ -9,7 +9,7 @@
 import UIKit
 import DZNEmptyDataSet
 
-class StoresVC: BaseController{
+class StoreVC: BaseController{
     
     @IBOutlet var groupCollectionView: UICollectionView!{
         didSet{
@@ -45,6 +45,7 @@ class StoresVC: BaseController{
         super.viewDidLoad()
         self.title = "Car World Stores"
         setNavigationBar()
+        addBackButton()
         groupCollectionView.adjustDesign(width: ((view.frame.size.width+20)/2.3))
     }
     
@@ -59,7 +60,7 @@ class StoresVC: BaseController{
     }
 }
 
-extension StoresVC:UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
+extension StoreVC:UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return storeList.count
@@ -77,7 +78,7 @@ extension StoresVC:UICollectionViewDataSource,UICollectionViewDelegate,UICollect
         let availableWidth = collectionView.bounds.width - sectionPadding - interitemPadding
         let widthPerItem = availableWidth / itemsPerRow
         
-        return CGSize(width: widthPerItem, height: 166)
+        return CGSize(width: widthPerItem, height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -93,7 +94,10 @@ extension StoresVC:UICollectionViewDataSource,UICollectionViewDelegate,UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-        
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "StoreTabVC") as! StoreTabVC
+        vc.storeName = storeList[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!){

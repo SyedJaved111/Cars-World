@@ -26,6 +26,7 @@ target 'Cars World' do
   pod 'GoogleSignIn'
   pod 'GooglePlaces'
   pod 'FlagKit'
+  pod 'XLPagerTabStrip'
   pod 'DZNEmptyDataSet'
   pod 'PayPal-iOS-SDK'
   pod 'RangeSeekSlider'

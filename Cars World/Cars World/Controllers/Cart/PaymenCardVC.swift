@@ -9,22 +9,18 @@
 import UIKit
 
 class PaymenCardVC: UIViewController {
+    
+    @IBOutlet weak var checkBox:UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func OnClickCheckBox(_ sender: Any) {
+        if(self.checkBox.image == #imageLiteral(resourceName: "Check-Active")){
+            self.checkBox.image = #imageLiteral(resourceName: "Check")
+        }else{
+            self.checkBox.image = #imageLiteral(resourceName: "Check-Active")
+        }
     }
-    */
-
 }

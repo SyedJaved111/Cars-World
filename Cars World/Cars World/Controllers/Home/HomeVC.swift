@@ -18,8 +18,6 @@ class HomeVC: BaseController{
     @IBOutlet weak var sucategoryField:UITextField!
     let categorydropDown = DropDown()
     let subcategorydropDown = DropDown()
-
-    let lang = UserDefaults.standard.string(forKey: "i18n_language")
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -36,6 +34,7 @@ class HomeVC: BaseController{
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        setNavigationBar()
         self.searchBarField.attributedPlaceholder = NSAttributedString(string: "Keyword", attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.3529411765, green: 0.3490196078, blue: 0.3568627451, alpha: 1),NSAttributedStringKey.font : UIFont(name: "Raleway-Regular", size: 12)!])
         self.categoryField.attributedPlaceholder = NSAttributedString(string: "Category",
             attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.3529411765, green: 0.3490196078, blue: 0.3568627451, alpha: 1),NSAttributedStringKey.font : UIFont(name: "Raleway-Regular", size: 12)!])
@@ -154,7 +153,13 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
 extension HomeVC: HomeProtocol{
     
     func tapOnViewAll(cell:HomeTableViewCell){
-       
+//        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "StoreVC") as! StoreVC
+//        self.navigationController?.pushViewController(vc, animated: true)
+        
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "StoreTabVC") as! StoreTabVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

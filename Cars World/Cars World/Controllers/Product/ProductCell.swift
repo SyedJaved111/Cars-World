@@ -8,17 +8,11 @@
 
 import UIKit
 
-class ProductCell: UITableViewCell {
+class ProductCell: UICollectionViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBAction func crossBtn(_ sender: UIButton) {
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBAction func editBtn(_ sender: UIButton) {
     }
-
 }

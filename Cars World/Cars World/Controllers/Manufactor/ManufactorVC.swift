@@ -9,7 +9,7 @@
 import UIKit
 import DZNEmptyDataSet
 
-class ManufactorVC: BaseController{
+class ManufactorVC: UIViewController{
     
     @IBOutlet var groupCollectionView: UICollectionView!{
         didSet{
@@ -43,14 +43,12 @@ class ManufactorVC: BaseController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Manufacturer / Make"
+        //self.title = "Manufacturer / Make"
         setNavigationBar()
         groupCollectionView.adjustDesign(width: ((view.frame.size.width+20)/2.3))
     }
     
     fileprivate func setupDelegates(){
-        self.groupCollectionView.emptyDataSetSource = self
-        self.groupCollectionView.emptyDataSetDelegate = self
         self.groupCollectionView.reloadData()
     }
     
@@ -68,7 +66,7 @@ extension ManufactorVC:UICollectionViewDataSource,UICollectionViewDelegate,UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
         cell.lblCategory.text = manufacturerList[indexPath.row]
-        cell.imgCategory.image = UIImage(named: "Brands-\(indexPath.row)")
+        cell.imgCategory.image = UIImage(named: "Brands-\(indexPath.row + 1)")
         return cell
     }
     

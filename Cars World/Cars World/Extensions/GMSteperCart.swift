@@ -72,6 +72,7 @@ import UIKit
     @objc @IBInspectable public var leftButtonText: String = "−" {
         didSet {
             leftButton.setTitle(leftButtonText, for: .normal)
+            leftButton.setTitleColor(#colorLiteral(red: 0.1190914139, green: 0.7232331634, blue: 0.3829919696, alpha: 1), for: .normal)
         }
     }
     
@@ -79,6 +80,7 @@ import UIKit
     @objc @IBInspectable public var rightButtonText: String = "+" {
         didSet {
             rightButton.setTitle(rightButtonText, for: .normal)
+            leftButton.setTitleColor(#colorLiteral(red: 0.1190914139, green: 0.7232331634, blue: 0.3829919696, alpha: 1), for: .normal)
         }
     }
     
@@ -92,7 +94,7 @@ import UIKit
     }
     
     /// Background color of the buttons. Defaults to dark blue.
-    @objc @IBInspectable public var buttonsBackgroundColor: UIColor = UIColor(red:0.21, green:0.5, blue:0.74, alpha:1) {
+    @objc @IBInspectable public var buttonsBackgroundColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) {
         didSet {
             for button in [leftButton, rightButton] {
                 button.backgroundColor = buttonsBackgroundColor
@@ -102,7 +104,7 @@ import UIKit
     }
     
     /// Font of the buttons. Defaults to AvenirNext-Bold, 20.0 points in size.
-    @objc public var buttonsFont = UIFont(name: "Raleway-Regular", size: 25.0)! {
+    @objc public var buttonsFont = UIFont(name: "Raleway-Regular", size: 16.0)! {
         didSet {
             for button in [leftButton, rightButton] {
                 button.titleLabel?.font = buttonsFont
@@ -118,7 +120,7 @@ import UIKit
     }
     
     /// Text color of the middle label. Defaults to lighter blue.
-    @objc @IBInspectable public var labelBackgroundColor: UIColor = UIColor(red:0.26, green:0.6, blue:0.87, alpha:1) {
+    @objc @IBInspectable public var labelBackgroundColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) {
         didSet {
             label.backgroundColor = labelBackgroundColor
         }
@@ -524,11 +526,4 @@ extension GMStepperCart {
             timerFireCount = 0
         }
     }
-}
-
-
-extension Decimal {
-    //var significantFractionalDecimalDigits: Int {
-        //return max(-exponent, 0)
-    //}
 }

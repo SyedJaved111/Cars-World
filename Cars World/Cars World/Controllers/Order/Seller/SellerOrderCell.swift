@@ -8,23 +8,11 @@
 
 import UIKit
 
-class SellerOrderCell: UIViewController {
+class SellerOrderCell: UITableViewCell {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    @IBOutlet weak var txtOrderNumber: UILabel!
+    @IBOutlet weak var txtTotalAmount: UILabel!
+    @IBOutlet weak var txtOrderDate: UILabel!
+    @IBOutlet weak var txtTotalProductCount: UILabel!
+    @IBOutlet weak var txtOrderStatus: UILabel!
 }

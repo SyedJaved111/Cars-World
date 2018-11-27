@@ -21,8 +21,6 @@ class CategoryVC: BaseController{
     }
     
     var categoryList = ["Cars","Spare Parts","Services","Tyres","Used Cars","Cars"]
-
-    let lang = UserDefaults.standard.string(forKey: "i18n_language")
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:

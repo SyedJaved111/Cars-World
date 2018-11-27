@@ -21,8 +21,7 @@ class SubCategoryVC: BaseController{
     }
     
     var subCategoryList = ["Sports Car","Convertible","Vans","Luxury Car","Compact Cars","Sedan"]
-    
-    let lang = UserDefaults.standard.string(forKey: "i18n_language")
+
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:

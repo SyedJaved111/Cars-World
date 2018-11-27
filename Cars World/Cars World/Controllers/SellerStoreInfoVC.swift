@@ -7,24 +7,20 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
-class SellerStoreInfoVC: UIViewController {
+class SellerStoreInfoVC: UIViewController,IndicatorInfoProvider {
 
+    @IBOutlet weak var storeInfoHeaderView: UIView!
+    var itemInfo = IndicatorInfo(title: "Store Info")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        storeInfoHeaderView.layer.borderWidth = 1
+        storeInfoHeaderView.layer.borderColor = #colorLiteral(red: 0.8745098039, green: 0.8784313725, blue: 0.8823529412, alpha: 1)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return itemInfo
     }
-    */
-
 }
